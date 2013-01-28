@@ -1,4 +1,1 @@
-SPOJ
-====
-
-SPOJ
+Few Problems from the spoj archive
