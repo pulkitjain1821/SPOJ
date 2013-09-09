@@ -9,7 +9,6 @@ typedef struct data
 	int rem;
 	int quo;
 };
-
 int main()
 {
 	char arr[500];
@@ -25,22 +24,20 @@ int main()
 	for(int i=0;i<len;i++)
     {
     	x++;
-    	if(arr[i+1]=='(' && i+1 <len)
+    	if(arr[i]=='(')
     	{
     		data point;
-    		point.rem = x-1;
-    		point.quo = arr[i] - '0';
+    		point.rem = x-2;
+    		point.quo = arr[i-1] - '0';
     		x = 0;
-    		i++;
     		myStack.push(point);
 		}
-    	else if (arr[i+1]==')'&& i+1 <len)
+    	else if (arr[i]==')')
     	{
     		data temp = myStack.top();
     		myStack.pop();
-    		x = temp.quo * x + temp.rem;
-    		
-    		i++;
+			x--;    		
+    		x = (temp.quo * x )+ temp.rem;
     	}
     }
 	printf("%d\n",x);
