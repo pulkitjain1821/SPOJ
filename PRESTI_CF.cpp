@@ -1,3 +1,6 @@
+/* using long long int is also fine. Checked later*/
+
+
 #include<cstdio>
 #include<cstdlib>
 using namespace std;
