@@ -10,6 +10,17 @@ int main()
 {
 	
 	int n,k;
+	long long int** arr = (long long int**)malloc((50+1)*sizeof(long long int*));
+	for(int i=0;i<=50;i++)
+	{
+		arr[i] = (long long int*)malloc(50*sizeof(long long int));
+	}		
+	for(int i=0;i<50;i++)
+	{
+		arr[0][i] = 0;
+	}
+	arr[0][0] = 1;
+
 	while(true)
 	{
 		scanf("%d%d",&n,&k);
@@ -18,16 +29,6 @@ int main()
 		int a,b;
 		scanf("%d%d",&a,&b);
 
-		long long int** arr = (long long int**)malloc((k+1)*sizeof(long long int*));
-		for(int i=0;i<=k;i++)
-		{
-			arr[i] = (long long int*)malloc(n*sizeof(long long int));
-		}		
-		for(int i=0;i<n;i++)
-		{
-			arr[0][i] = 0;
-		}
-		arr[0][0] = 1;
 		
 		for(int i=1;i<=k;i++)
 		{
