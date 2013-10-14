@@ -1,0 +1,47 @@
+#include<cstdlib>
+#include<cstdio>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+int main()
+{
+	char a[1001];
+	char b[1001];
+	while(true)
+	{
+		scanf("%s",a);
+		if(a[0]=='#')
+			break;
+		scanf("%s",b);
+		int la = strlen(a);
+		int lb = strlen(b);
+		
+		int ans[la+1][lb+1];
+		for(int i = 0;i<=la;i++)
+		{
+			ans[i][0] = 0;
+		}
+		for(int i = 0;i<=lb;i++)
+		{
+			ans[0][i] = 0;
+		}
+		
+		for(int i=1;i<=la;i++)
+		{
+			for(int j=1;j<=lb;j++)
+			{
+				if(a[i-1]==b[j-1])
+				{
+					ans[i][j] = 1 + ans[i-1][j-1];
+				}
+				else
+				{
+					ans[i][j] = max(ans[i][j-1],ans[i-1][j]);
+				}
+			}
+		}
+		int cost = 15*(la-ans[la][lb]) + 30*(lb - ans[la][lb]);
+		printf("%d\n",cost);
+	}
+	return 0;
+}
