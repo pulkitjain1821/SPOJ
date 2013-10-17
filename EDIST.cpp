@@ -4,11 +4,12 @@
 #include<cmath>
 #include<algorithm>
 using namespace std;
-int ans[2001][2001];
-int edit(char* arr, char* brr)
+
+int edit(int ** ans,char* arr, char* brr)
 {
 	int la = strlen(arr);
 	int lb = strlen(brr);
+
 	for(int i=0;i<=la;i++)
 	{
 		ans[i][0] = i;
@@ -32,10 +33,10 @@ int edit(char* arr, char* brr)
 			}
 		}
 	}
-	/*
+	
 	int lcs = ans[la][lb];
-	return abs(lcs - lb);
-	*/
+	//return abs(lcs - lb);
+	//free(ans);
 	return ans[la][lb];
 }
 
@@ -43,13 +44,19 @@ int main()
 {
 	char arr[2001];
 	char brr[2001];
+	int ** ans = (int**)malloc((2001)*sizeof(int*));
+	for(int i=0;i<=2000;i++)
+	{
+		*(ans+i) = (int*)malloc((2001)*sizeof(int));
+	}
+
 	int t;
 	scanf("%d",&t);
 	for(int i=0;i<t;i++)
 	{
 		scanf("%s",arr);
 		scanf("%s",brr);
-		printf("%d\n",edit(arr,brr));
+		printf("%d\n",edit(ans,arr,brr));
 	}
 	return 0;
 }
