@@ -72,6 +72,7 @@ int main()
 			}
 		}
 		printf("%d\n",ans);
+		free(arr);
 	}
 	return 0;
 }
