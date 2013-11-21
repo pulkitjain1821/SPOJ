@@ -88,7 +88,7 @@ int main()
 						mine.push(adj[k]);
 						expand[row][col] &= true; 
 					}
-					else if(expand[top/c][top%c] && status[row][col] >= 'a' && status[row][col] <= 'z')
+					else if(expand[row][col] && status[row][col] >= 'a' && status[row][col] <= 'z')
 					{
 						if(status[top/c][top%c]!=status[row][col] && dist[top/c][top%c]+1==dist[row][col])
 						{
