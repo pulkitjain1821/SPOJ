@@ -1,7 +1,7 @@
 #include<cstdio>
 #include<cstdlib>
 using namespace std;
-long long int ans[5001][5001];
+short ans[5001][5001];
 int main()
 {
 	for(int i=0;i<=5000;i++)
